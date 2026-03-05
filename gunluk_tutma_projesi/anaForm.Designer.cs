@@ -150,6 +150,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "anaForm";
             this.Text = "GÜNLÜK TUTMA PROGRAMI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.anaForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

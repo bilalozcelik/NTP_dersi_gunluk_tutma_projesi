@@ -46,13 +46,22 @@ namespace gunluk_tutma_projesi
 
         private void btnAc_Click(object sender, EventArgs e)
         {
-            OpenFileDialog  acPenceresi=new OpenFileDialog();
+            OpenFileDialog acPenceresi = new OpenFileDialog();
             acPenceresi.Filter = "Metin Dosyası (*.txt)|*.txt|Tüm Dosyalar (*.*)|*.*";
             DialogResult sonuc = acPenceresi.ShowDialog();
-            if(sonuc==DialogResult.OK)
+            if (sonuc == DialogResult.OK)
             {
                 string dosyaYolu = acPenceresi.FileName;
                 gunlukYazi.LoadFile(dosyaYolu, RichTextBoxStreamType.PlainText);
+            }
+        }
+
+        private void anaForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult cevap = MessageBox.Show("Çıkmak istediğinize emin misiniz?", "Çıkış Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (cevap == DialogResult.No)
+            {
+                e.Cancel = true; // Formun kapanmasını iptal eder
             }
         }
     }
